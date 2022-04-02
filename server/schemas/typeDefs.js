@@ -25,15 +25,17 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
-    user: User
+    spots:[Spots]
+    user: [User]
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, favoriteTeam: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addSpot(description: String!, coordinates: String!, title: String!): Auth
     login(email: String!, password: String!): Auth
     removeUser(userId: ID!): User
-    updateTeam( id: ID!,favoriteTeam: String!): Auth
+    removeSpot(spotId: ID!): User
+    updateSpot( id: ID!, title: String!): Auth
   }
 `;
 
