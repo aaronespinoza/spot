@@ -26,7 +26,7 @@ const typeDefs = gql`
 
   type Query {
     spots:[Spots]
-    user: [User]
+    users: [User]
   }
 
   type Mutation {
