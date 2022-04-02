@@ -7,7 +7,16 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    favoriteTeam: String
+    spots: [Spots]
+  }
+
+  type Spots {
+    _id: ID
+    explorers: [User]
+    description: String
+    coordinates: String
+    image: String
+    title: String
   }
 
   type Auth {
