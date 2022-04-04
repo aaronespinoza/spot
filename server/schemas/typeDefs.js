@@ -26,7 +26,9 @@ const typeDefs = gql`
 
   type Query {
     spots:[Spots]
+    spot(spotId: ID!): Spots
     users: [User]
+
   }
 
   type Mutation {
@@ -34,7 +36,7 @@ const typeDefs = gql`
     addSpot(description: String!, coordinates: String!, title: String!): Auth
     login(email: String!, password: String!): Auth
     removeUser(userId: ID!): User
-    removeSpot(spotId: ID!): User
+    removeSpot(spotId: ID!): Auth
     updateSpot( id: ID!, title: String!): Auth
   }
 `;
