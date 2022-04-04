@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const { User, Spots } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const spotSeeds = require('./thoughtSeeds.json');
+const spotSeeds = require('./spotSeeds.json');
 
 db.once('open', async () => {
   try {
