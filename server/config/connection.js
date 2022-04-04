@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/commissioner',
+  process.env.MONGODB_URI || 'mongodb://localhost/spot',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
