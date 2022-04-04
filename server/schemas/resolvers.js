@@ -56,6 +56,22 @@ const resolvers = {
       const token = signToken(user);
       return {token, user};
     },
+    addSpot: async (parent, { title }, context) => {
+      if (context.user) {
+        const spot = await Spots.create({
+          title,
+          explorers: context.user.email,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { spots: spot._id } }
+        );
+
+        return spot;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     removeUser: async (parent, { userId }, context) => {
       if (context.user) {
         return await User.findOneAndDelete({ _id: userId });
@@ -78,13 +94,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    updateTeam: async (parent, {favoriteTeam, id},context) => {
+    updateSpot: async (parent, {spots, id},context) => {
       console.log("you made it")
       if(context.user) {
         //first curly is what i'm looking for
         //second curly is what I want to change
         const user= await User.findOneAndUpdate({_id: id},
-          {favoriteTeam: favoriteTeam},
+          {spots: spots},
           {new:true})
           const token = signToken(user);
           return {token, user};
