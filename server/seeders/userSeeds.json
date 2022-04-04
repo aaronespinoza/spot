@@ -1,51 +1,61 @@
 [
   {
-    "username": "Brian Kernighan",
+    "firstName": "Brian",
+    "lastName": "Kernighan",
     "email": "bkernighan@techfriends.dev",
     "password": "password01"
   },
   {
-    "username": "Max Kanat-Alexander",
+    "firstName": "Max",
+    "lastName": "Alexander",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02"
   },
   {
-    "username": "Why The Lucky Stiff",
+    "firstName": "Lucky",
+    "lastName": "Stiff",
     "email": "wtls@techfriends.dev",
     "password": "password03"
   },
   {
-    "username": "Kent Beck",
+    "firstName": "Kent",
+    "lastName": "Beck",
     "email": "kbeck@techfriends.dev",
     "password": "password04"
   },
   {
-    "username": "Edward V. Berard",
+    "firstName": "Edward",
+    "lastName": "Berard",
     "email": "evberard@techfriends.dev",
     "password": "password05"
   },
   {
-    "username": "Alan Kay",
+    "firstName": "Alan",
+    "lastName": "Kay",
     "email": "akay@techfriends.dev",
     "password": "password06"
   },
   {
-    "username": "C.A.R. Hoare",
+    "firstName": "Cholla",
+    "lastName": "Hoare",
     "email": "choare@techfriends.dev",
     "password": "password07"
   },
   {
-    "username": "David Thomas",
+    "firstName": "David",
+    "lastName": "Thomas",
     "email": "dthomas@techfriends.dev",
     "password": "password08"
   },
   {
-    "username": "Donald Knuth",
+    "firstName": "Donald",
+    "lastName": "Knuth",
     "email": "dknuth@techfriends.dev",
     "password": "password09"
   },
   {
-    "username": "Lernantino",
+    "firstName": "Lernantino",
+    "lastName": "Vinchenzo",
     "email": "lernantino@techfriends.dev",
     "password": "password10"
   }
