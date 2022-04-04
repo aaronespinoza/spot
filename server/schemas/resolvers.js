@@ -70,9 +70,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeUser: async (parent, { userId }, context) => {
+    removeUser: async (parent, args, context) => {
       if (context.user) {
-        return await User.findOneAndDelete({ _id: userId });
+        return await User.findOneAndDelete({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },

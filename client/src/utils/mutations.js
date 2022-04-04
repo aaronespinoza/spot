@@ -24,6 +24,20 @@ export const LOGIN = gql`
   }
 `
 
+export const ADD_SPOT = gql`
+  mutation addSpot($title: String!) {
+    addSpot(title: $title) {
+      _id
+      explorers
+      description
+      coordinates
+      image
+      title
+      createdAt
+    }
+  }
+`;
+
 export const REMOVE_USER = gql`
   mutation removeUser($userId: ID!) {
     removeUser(userId: $userId) {
@@ -32,13 +46,27 @@ export const REMOVE_USER = gql`
   }
 `;
 
-export const UPDATE_TEAM = gql`
-  mutation updateTeam($id: ID!,$favoriteTeam: String! ) {
-    updateTeam(id: $id, favoriteTeam: $favoriteTeam) {
+export const REMOVE_SPOT = gql`
+  mutation removeSpot($spotId: ID!) {
+    removeSpot(spotId: $spotId) {
+      _id
+      explorers
+      description
+      coordinates
+      image
+      title
+      createdAt
+    }
+  }
+`;
+
+export const UPDATE_SPOT = gql`
+  mutation updateSpot($id: ID!,$spots: String! ) {
+    updateSpot(id: $id, spots: $spots) {
       token
       user{
       _id
-      favoriteTeam}
+      spots}
     }
   }
 `;
