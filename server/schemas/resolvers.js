@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Spots } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -59,6 +59,22 @@ const resolvers = {
     removeUser: async (parent, { userId }, context) => {
       if (context.user) {
         return await User.findOneAndDelete({ _id: userId });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeSpot: async (parent, { spotId }, context) => {
+      if (context.user) {
+        const spot = await Spots.findOneAndDelete({
+          _id: spotId,
+          explorers: context.user.email,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { spots: spot._id } }
+        );
+
+        return spot;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
