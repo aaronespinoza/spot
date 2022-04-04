@@ -16,21 +16,19 @@ const resolvers = {
     },
     spots: async(parent, args, context) => {
       if(context.user) {
-        const userData = await User.findOne({_id: context.user._id })
-        .select('-__v -password')
-
-        return userData;
+        const params = email ? { email } : {};
+        return Spots.find(params).sort({ createdAt: -1 });
       }
       throw new AuthenticationError('Not Logged In')
     },
-    users: async(parent, args, context) => {
-      if(context.user) {
-        const userData = await User.findOne({_id: context.user._id })
-        .select('-__v -password')
-
-        return userData;
-      }
-      throw new AuthenticationError('Not Logged In')
+    spot: async (parent, { spotId }) => {
+      return Spots.findOne({ _id: spotId });
+    },
+    users: async () => {
+      return User.find().populate('spots');
+    },
+    user: async (parent, { email }) => {
+      return User.findOne({ email }).populate('spots');
     },
 
   },
