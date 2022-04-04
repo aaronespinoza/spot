@@ -11,7 +11,7 @@ const spotsSchema = new Schema({
   ],
   description: {
     type: String,
-    required: true,
+    
   },
   // coordinates id from GoogleMaps Api
   coordinates: {
