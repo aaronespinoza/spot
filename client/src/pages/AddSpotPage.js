@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 //we import the mutations from the 
 //utils on the client end
 import { useMutation } from '@apollo/client';
-import { REMOVE_USER } from '../utils/mutations';
-import { UPDATE_TEAM } from '../utils/mutations';
+import { ADD_SPOT } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -22,11 +21,10 @@ import {
 
 
 
-const UpdatePage = (props) => {
+const AddSpotPage = (props) => {
 
-  const [deleteUser, { error }] = useMutation(REMOVE_USER);
-  const [updateTeam, { teamerror }] = useMutation(UPDATE_TEAM);
-  const [formState, setFormState] = useState({ favoriteTeam: '' });
+  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', favoriteTeam: '', password: '' });
+  const [addSpot, { error, data }] = useMutation(ADD_SPOT);
 
   // const handleChangeTeam = async (favoriteTeam) => {
 
@@ -63,7 +61,7 @@ const UpdatePage = (props) => {
       const user = Auth.getProfile()
       console.log(user)
       try {
-        const { data } = await updateTeam({
+        const { data } = await addSpot({
           variables: {
             
             ...formState,
