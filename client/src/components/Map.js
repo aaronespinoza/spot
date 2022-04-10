@@ -3,12 +3,12 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 import React from 'react'
-import { GoogleMap, withScriptjs } from 'react-google-maps'
+import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps'
 import {
    
     Container,
    } from "react-bootstrap" 
-import withGoogleMap from 'react-google-maps/lib/withGoogleMap'
+//import withGoogleMap from 'react-google-maps/lib/withGoogleMap'
 
 function Map (props) {
   
@@ -34,6 +34,7 @@ return(
 
 )
 }
-const WrappedMap = withScriptjs(withGoogleMap(Map));
+//const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default Map; 
+//export WrappedMap;

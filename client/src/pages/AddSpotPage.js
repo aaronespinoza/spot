@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 //utils on the client end
 import { useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
+import { withScriptjs, withGoogleMap } from 'react-google-maps'
+
 
 import Auth from '../utils/auth';
 
@@ -12,6 +14,7 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import TeamSelect from "../components/TeamSelect";
 import Map from "../components/Map";
+import WrappedMap from "../components/Map";
 
 
 
@@ -25,6 +28,7 @@ import {
 
 
 const AddSpotPage = (props) => {
+    const WrappedMap = withScriptjs(withGoogleMap( Map ));
 
     const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
     const [addSpot, { error, data }] = useMutation(ADD_SPOT);
@@ -68,7 +72,6 @@ const AddSpotPage = (props) => {
     return (
       <div className="pt-5 justify-content-center align-items-center d-flex w-100"
         style={{
-          backgroundImage: `url(${img3})`,
           backgroundSize: "cover",
           height: "100vh",
         }}
@@ -76,28 +79,17 @@ const AddSpotPage = (props) => {
         <div className="card-header bg-dark text-light p-2"></div>
         <div className="card-body">
           
-          <Map>
-          
-          <Form onSubmit={handleFormSubmit}>
-            <TeamSelect setState={setFormState} state= {formState}/>
-            
-            <Button
-              className="btn btn-block btn-primary"
-              style={{ cursor: 'pointer' }}
-              type="submit"
-            >
-              Submit
-            </Button>
-      
+          <div style={{width:"100vw", height: "100vh"}}>
+            <WrappedMap
+              googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkSX6_jmCQI-wyDySrrVTy6wTZC0KL7d8&libraries=places`}
+              loadingElement={<div style={{height: "100%"}}/>}
+              containerElement={<div style={{height: "100%"}}/>}
+              mapElement={<div style={{height: "100%"}}/>}
+            />
 
-          </Form>
-          <Button
-              className="btn btn-block btn-primary bg-danger"
-              style={{ cursor: 'pointer' }}
-            
-            >
-              Delete Profile
-            </Button>
+          </div>
+          
+          
 
 
 
