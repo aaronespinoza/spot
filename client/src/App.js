@@ -76,10 +76,10 @@ function App() {
               <SearchPage/>
             </Route>
 
-            <Route exact path="/update">
+            {/* <Route exact path="/update">
               
               <UpdatePage/>
-            </Route>
+            </Route> */}
 
             <Route exact path="/addspot">
               

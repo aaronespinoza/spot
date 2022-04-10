@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 //utils on the client end
 import { useMutation } from '@apollo/client';
 import { REMOVE_USER } from '../utils/mutations';
-import { UPDATE_TEAM } from '../utils/mutations';
+// import { UPDATE_TEAM } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -31,7 +31,7 @@ import {
 const UpdatePage = (props) => {
 
   const [deleteUser, { error }] = useMutation(REMOVE_USER);
-  const [updateTeam, { teamerror }] = useMutation(UPDATE_TEAM);
+  // const [updateTeam, { teamerror }] = useMutation(UPDATE_TEAM);
   const [formState, setFormState] = useState({ favoriteTeam: '' });
 
   // const handleChangeTeam = async (favoriteTeam) => {

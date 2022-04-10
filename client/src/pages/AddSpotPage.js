@@ -15,6 +15,7 @@ import img3 from "../images/UpdateUser.png";
 import TeamSelect from "../components/TeamSelect";
 import Map from "../components/Map";
 import WrappedMap from "../components/Map";
+import CurrentLocation from "../components/CurrentLocation";
 
 
 
@@ -39,9 +40,9 @@ const AddSpotPage = (props) => {
     React.useEffect(()=>{
       navigator.geolocation.getCurrentPosition((position)=>{
 
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-        console.log(position.coords)
+        //setLatitude(position.coords.latitude);
+        //setLongitude(position.coords.longitude);
+        console.log(position.coords);
       })
     },[])
 
@@ -91,7 +92,7 @@ const AddSpotPage = (props) => {
         <div className="card-header bg-dark text-light p-2"></div>
         <div className="card-body">
           
-          <div style={{width:"100vw", height: "100vh"}}>
+          <div style={{width:"50vw", height: "50vh"}}>
             <WrappedMap
               googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkSX6_jmCQI-wyDySrrVTy6wTZC0KL7d8&libraries=places`}
               loadingElement={<div style={{height: "100%"}}/>}
@@ -99,6 +100,9 @@ const AddSpotPage = (props) => {
               mapElement={<div style={{height: "100%"}}/>}
             />
 
+          </div>
+          <div>
+            <CurrentLocation/>
           </div>
           
           
