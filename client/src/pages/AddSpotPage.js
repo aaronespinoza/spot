@@ -23,27 +23,9 @@ import {
 
 const AddSpotPage = (props) => {
 
-  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', favoriteTeam: '', password: '' });
-  const [addSpot, { error, data }] = useMutation(ADD_SPOT);
+    const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
+    const [addSpot, { error, data }] = useMutation(ADD_SPOT);
 
-  // const handleChangeTeam = async (favoriteTeam) => {
-
-    //Delete user form
-
-    const handleDeleteUser = async (event) => {
-      const token = Auth.getProfile()
-      event.preventDefault();
-      console.log(formState);
-      try {
-        const { data } = await deleteUser({
-          variables: { ...formState },
-        });
-
-        //   Auth.login(data.login.token);
-      } catch (e) {
-        console.error(e);
-      }
-    }
     //update on form changes
     const handleChange = (event) => {
       const { name, value } = event.target;

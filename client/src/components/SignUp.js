@@ -12,7 +12,7 @@ function SignUp ({show,handleClose})
 
 {
 
-  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', favoriteTeam: '', password: '' });
+  const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', password: '' });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -42,7 +42,7 @@ function SignUp ({show,handleClose})
 
     // clear form values
     setFormState({
-      firstName: '', lastName: '', email: '', favoriteTeam: '', password: '' 
+      firstName: '', lastName: '', email: '', password: '' 
     });
   };
     return (
@@ -82,15 +82,6 @@ function SignUp ({show,handleClose})
                   name="email"
                   type="email"
                   value={formState.email}
-                  onChange={handleChange}
-                />
-               
-                 <input
-                  className="form-input"
-                  placeholder="favoriteteam"
-                  name="favoriteTeam"
-                  type="text"
-                  value={formState.favoriteTeam}
                   onChange={handleChange}
                 />
                  <input

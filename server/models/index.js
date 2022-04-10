@@ -1,14 +1,8 @@
 const User = require('./User');
+const Spots = require('./Spots');
 
 
-
-
-
-
-
-
-
-module.exports = { User };
+module.exports = { User, Spots };
 
 
 
