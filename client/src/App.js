@@ -21,6 +21,8 @@ import SearchPage from './pages/SearchPage';
 import LoginPage from './pages/Login'
 import UpdatePage from './pages/UpdatePage'
 import HomeBg from './components/HomeBg';
+import AddSpotPage from './pages/AddSpotPage'
+
 
 
 
@@ -77,6 +79,11 @@ function App() {
             <Route exact path="/update">
               
               <UpdatePage/>
+            </Route>
+
+            <Route exact path="/addspot">
+              
+              <AddSpotPage/>
             </Route>
          
       </Router>
