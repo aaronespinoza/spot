@@ -11,12 +11,15 @@ import Auth from '../utils/auth';
 // import "./UpdatePage.css";
 import img3 from "../images/UpdateUser.png";
 import TeamSelect from "../components/TeamSelect";
+import Map from "../components/Map";
+
 
 
 import {
   Form,
   Button,
   FormSelect,
+  Container,
 } from "react-bootstrap";
 
 
@@ -72,7 +75,9 @@ const AddSpotPage = (props) => {
       >
         <div className="card-header bg-dark text-light p-2"></div>
         <div className="card-body">
-
+          
+          <Map>
+          
           <Form onSubmit={handleFormSubmit}>
             <TeamSelect setState={setFormState} state= {formState}/>
             
