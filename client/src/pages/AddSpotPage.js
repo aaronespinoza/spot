@@ -32,6 +32,18 @@ const AddSpotPage = (props) => {
 
     const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
     const [addSpot, { error, data }] = useMutation(ADD_SPOT);
+    const[latitude, setLatitude]= useState('');
+    const[longitude, setLongitude]= useState('');
+
+    //Finds users location
+    React.useEffect(()=>{
+      navigator.geolocation.getCurrentPosition((position)=>{
+
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+        console.log(position.coords)
+      })
+    },[])
 
     //update on form changes
     const handleChange = (event) => {
