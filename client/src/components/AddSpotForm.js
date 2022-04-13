@@ -27,20 +27,25 @@ const AddSpotForm = props => {
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-            </Form.Text>
+            <Form.Label>Title</Form.Label>
+            <Form.Control type="string" placeholder="Enter title" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Description</Form.Label>
+            <Form.Control type="string" placeholder="Enter description" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Image</Form.Label>
+            <Form.Control type="string" placeholder="Enter Image" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Label>Coordinates</Form.Label>
+            <Form.Control type="string" placeholder="Coordinates" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
+            
         <Button variant="primary" type="submit">
             Submit
         </Button>
