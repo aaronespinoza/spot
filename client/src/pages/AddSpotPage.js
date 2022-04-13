@@ -14,6 +14,7 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import TeamSelect from "../components/TeamSelect";
 import Map from "../components/Map";
+import AddSpotForm from "../components/AddSpotForm";
 import WrappedMap from "../components/Map";
 import CurrentLocation from "../components/CurrentLocation";
 
@@ -24,6 +25,8 @@ import {
   Button,
   FormSelect,
   Container,
+  Row,
+  Col,
 } from "react-bootstrap";
 
 
@@ -91,16 +94,24 @@ const AddSpotPage = (props) => {
       >
         {/* <div className="card-header bg-dark text-light p-2"></div> */}
         <div className="card-body">
-          
-          <div style={{width:"50vw", height: "50vh"}}>
-            <WrappedMap
-              googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkSX6_jmCQI-wyDySrrVTy6wTZC0KL7d8&libraries=places`}
-              loadingElement={<div style={{height: "100%"}}/>}
-              containerElement={<div style={{height: "100%"}}/>}
-              mapElement={<div style={{height: "100%"}}/>}
-            />
+          <Row>
+           <Col sm={6}>
+            <AddSpotForm/>
+           </Col>
+           <Col sm={6}>
 
-          </div>
+            <div style={{width:"50vw", height: "50vh"}}>
+              <WrappedMap
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkSX6_jmCQI-wyDySrrVTy6wTZC0KL7d8&libraries=places`}
+                loadingElement={<div style={{height: "100%"}}/>}
+                containerElement={<div style={{height: "100%"}}/>}
+                mapElement={<div style={{height: "100%"}}/>}
+              />
+
+            </div>
+            </Col>
+
+          </Row>
           <div>
             <CurrentLocation/>
           </div>
