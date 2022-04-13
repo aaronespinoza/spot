@@ -1,9 +1,9 @@
-import { useEffect } from "react"
-// import ListingForm from '../listings/ListingForm'
+import { useEffect, useState } from "react"
+//import AddSpotForm from '../components/AddSpotForm'
 
 const CurrentLocation = props => { 
     
-    // const [location, setLocation] = useState({ lat: 51.501364, lng: -0.141890 })
+    const [location, setLocation] = useState({ lat: 51.501364, lng: -0.141890 })
 
     // geolocator location
     const success = position => {
@@ -35,11 +35,11 @@ const CurrentLocation = props => {
             </div>
             <div className="text-center py-4">
                 <h3>
-                    Add a new listing here
+                    Add a new Spot here
                 </h3>
             </div>
             {/* <div className="container"  style={{maxWidth: "500px"}}>
-                <ListingForm location={location} />
+                <AddSpotForm location={location} />
             </div> */}
         </div>
     )

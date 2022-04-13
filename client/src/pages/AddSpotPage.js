@@ -89,7 +89,7 @@ const AddSpotPage = (props) => {
           height: "100vh",
         }}
       >
-        <div className="card-header bg-dark text-light p-2"></div>
+        {/* <div className="card-header bg-dark text-light p-2"></div> */}
         <div className="card-body">
           
           <div style={{width:"50vw", height: "50vh"}}>
