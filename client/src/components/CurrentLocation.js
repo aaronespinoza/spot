@@ -1,48 +1,44 @@
 import { useEffect, useState } from "react"
-//import AddSpotForm from '../components/AddSpotForm'
+import React from "react";
 
-const CurrentLocation = props => { 
+
+const CurrentLocation = () => { 
     
-    const [location, setLocation] = useState({ lat: 51.501364, lng: -0.141890 })
+    const[location, setLocation]= useState({
+        loaded: false,
+        coordinates: { lat: "", lng: ""},
+    });
 
-    // geolocator location
-    const success = position => {
-        const coordinates = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        }
-        setLocation(coordinates)
-    }
+    const onSuccess = (location) => {
+        setLocation({
+            loaded: true,
+            coordinates: {
+                lat: location.coords.latitiude,
+                lng: location.coords.longitude,
+            },
+        });
+    };
 
-    useEffect(()=>{
-        if (navigator.geolocation) {
-            navigator.permissions
-                .query({ name: "geolocation" })
-                .then(function (result) {
-                    if (result.state === "granted") {
-                        navigator.geolocation.getCurrentPosition(success)
-                    } else if (result.state === "prompt") {
-                        navigator.geolocation.getCurrentPosition(success)
-                    }
+    const onError = (location) => {
+        setLocation({
+            loaded: true,
+            error,
+            
+        });
+    };
+
+    useEffect(()=> {
+        if (!("geolocation" in navigator)){
+            onError({
+                code: 0,
+                message: "Geolocation not supported",
             });
         }
-    },[])
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    },[]);
 
-    return (
-        <div>
-            <div className="text-center py-4">
-                <h1 style={{fontSize: 50}}>Welcome </h1>
-            </div>
-            <div className="text-center py-4">
-                <h3>
-                    Add a new Spot here
-                </h3>
-            </div>
-            {/* <div className="container"  style={{maxWidth: "500px"}}>
-                <AddSpotForm location={location} />
-            </div> */}
-        </div>
-    )
-}
+    return location;
+
+};
 
 export default CurrentLocation;

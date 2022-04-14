@@ -33,7 +33,7 @@ import {
 
 const AddSpotPage = (props) => {
     const WrappedMap = withScriptjs(withGoogleMap( Map ));
-
+    const location = CurrentLocation
     const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
     const [addSpot, { error, data }] = useMutation(ADD_SPOT);
     const[latitude, setLatitude]= useState('');
@@ -112,9 +112,7 @@ const AddSpotPage = (props) => {
             </Col>
 
           </Row>
-          <div>
-            <CurrentLocation/>
-          </div>
+          
           
           
 
