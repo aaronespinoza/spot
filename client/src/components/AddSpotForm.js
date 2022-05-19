@@ -7,6 +7,7 @@ import CurrentLocation from "../components/CurrentLocation";
 const AddSpotForm = props => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
+    //const [coord, setCoord] = useState(lat,lng);
     const [status, setStatus] = useState(null);
 
 
@@ -20,6 +21,7 @@ const AddSpotForm = props => {
             setStatus(null);
             setLat(position.coords.latitude);
             setLng(position.coords.longitude);
+            //setCoord(position.coords);
           }, () => {
             setStatus('Unable to retrieve your location');
           });
@@ -73,20 +75,17 @@ const AddSpotForm = props => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Coordinates</Form.Label>
-            <Form.Control type="string" placeholder="Coordinates" />
+            <Form.Label>Latitude</Form.Label>
+            <Form.Control type="string" value={lat} />
             </Form.Group>
 
-            <div onLoad={getLocation}>
-            <p>{status}</p>
-            {lat && <p>Latitude: {lat}</p>}
-            {lng && <p>Longitude: {lng}</p>}
-            </div>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Longitude</Form.Label>
+            <Form.Control type="string" value={lng} />
+            </Form.Group>
+
             <button onClick={getLocation}>Get Location</button>
-            <div>Coordinates</div>
-            <p>{status}</p>
-            {lat && <p>Latitude: {lat}</p>}
-            {lng && <p>Longitude: {lng}</p>}
+            
             
         <Button variant="primary" type="submit">
             Submit

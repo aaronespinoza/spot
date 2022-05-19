@@ -3,8 +3,3 @@ const Spots = require('./Spots');
 
 
 module.exports = { User, Spots };
-
-
-
-
-
