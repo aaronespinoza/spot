@@ -1,7 +1,7 @@
 //import { getLocation } from "graphql";
 import React,{ useState, useEffect, useRef, useCallback } from "react"
 import { Form, Button } from "react-bootstrap"
-import CurrentLocation from "../components/CurrentLocation";
+import CurrentLat from "./CurrentLat";
 
 
 const AddSpotForm = props => {
@@ -52,7 +52,7 @@ const AddSpotForm = props => {
     React.useEffect(()=>{
         navigator.geolocation.getCurrentPosition((position)=>{
   
-          console.log(position.coords);
+          console.log(position.coords.latitude);
         })
       },[])
 

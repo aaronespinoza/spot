@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 //utils on the client end
 import { useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
-import { withScriptjs, withGoogleMap } from 'react-google-maps'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 
 import Auth from '../utils/auth';
@@ -16,7 +16,7 @@ import TeamSelect from "../components/TeamSelect";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
 import WrappedMap from "../components/Map";
-import CurrentLocation from "../components/CurrentLocation";
+import CurrentLat from "../components/CurrentLat";
 
 
 
@@ -32,12 +32,17 @@ import {
 
 
 const AddSpotPage = (props) => {
-    const WrappedMap = withScriptjs(withGoogleMap( Map ));
-    const location = CurrentLocation
-    const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
-    const [addSpot, { error, data }] = useMutation(ADD_SPOT);
-    const[latitude, setLatitude]= useState('');
-    const[longitude, setLongitude]= useState('');
+    //const WrappedMap = withScriptjs(withGoogleMap( Map ));
+    // const location = CurrentLocation
+    // const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
+    // const [addSpot, { error, data }] = useMutation(ADD_SPOT);
+    // const[latitude, setLatitude]= useState('');
+    // const[longitude, setLongitude]= useState('');
+    const {isLoaded}= useJsApiLoader({
+      googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    })
+
+    const center = {lat: CurrentLat.value, lng: 2.2945}
 
     //Finds users location
     React.useEffect(()=>{
@@ -46,6 +51,8 @@ const AddSpotPage = (props) => {
         //setLatitude(position.coords.latitude);
         //setLongitude(position.coords.longitude);
         console.log(position.coords);
+        console.log(CurrentLat);
+
       })
     },[])
 
@@ -84,7 +91,11 @@ const AddSpotPage = (props) => {
         favoriteTeam: '',
       });
     };
-    console.log(formState);
+    //console.log(formState);
+
+    if(!isLoaded){
+     return <div value="loading"/>
+    }
     return (
       <div className="pt-5 justify-content-center align-items-center d-flex w-100"
         style={{
@@ -92,46 +103,17 @@ const AddSpotPage = (props) => {
           height: "100vh",
         }}
       >
-        {/* <div className="card-header bg-dark text-light p-2"></div> */}
-        <div className="card-body">
-          <Row>
-           <Col sm={6}>
-            <AddSpotForm/>
-           </Col>
-           <Col sm={6}>
+        <AddSpotForm></AddSpotForm>
 
-            <div style={{width:"50vw", height: "50vh"}}>
-              <WrappedMap
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyCkSX6_jmCQI-wyDySrrVTy6wTZC0KL7d8&libraries=places`}
-                loadingElement={<div style={{height: "100%"}}/>}
-                containerElement={<div style={{height: "100%"}}/>}
-                mapElement={<div style={{height: "100%"}}/>}
-              />
+        <GoogleMap 
+        center={center} 
+        zoom={15} 
+        mapContainerStyle={{width: "80%", height:"80%"}}>
 
-            </div>
-            </Col>
-
-          </Row>
-          
-          
-          
-
-
-
-          {error && (
-            <div className="my-3 p-3 bg-danger text-white">
-              {error.message}
-            </div>
-          )}
-        </div>
+        </GoogleMap>
+        
       </div>
-
-
-
     );
-
-
-  
 };
 
 export default AddSpotPage;
