@@ -7,8 +7,8 @@ import CurrentLat from "./CurrentLat";
 const AddSpotForm = props => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
-    //const [coord, setCoord] = useState(lat,lng);
-    const [status, setStatus] = useState(null);
+    const [coord, setCoord] = useState(lat,lng);
+    // const [status, setStatus] = useState(null);
 
 
     

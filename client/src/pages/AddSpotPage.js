@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import "./UpdatePage.css";
 // import img3 from "../images/UpdateUser.png";
 //we import the mutations from the 
@@ -32,29 +32,25 @@ import {
 
 
 const AddSpotPage = (props) => {
-    //const WrappedMap = withScriptjs(withGoogleMap( Map ));
-    // const location = CurrentLocation
-    // const [formState, setFormState] = useState({ title: '', description: '', image: '', coordinates: '' });
-    // const [addSpot, { error, data }] = useMutation(ADD_SPOT);
-    // const[latitude, setLatitude]= useState('');
-    // const[longitude, setLongitude]= useState('');
+
     const {isLoaded}= useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     })
+    const[map, setMap]= useState( /** @type google.maps.GoogleMap */ (null))
+    const[userLat, setUserLat]= useState();
+    const[userLong, setUserLong]= useState();
 
-    const center = {lat: CurrentLat.value, lng: 2.2945}
+    let center = {lat: 50.8584, lng: 12.2945}
 
     //Finds users location
-    React.useEffect(()=>{
-      navigator.geolocation.getCurrentPosition((position)=>{
 
-        //setLatitude(position.coords.latitude);
-        //setLongitude(position.coords.longitude);
-        console.log(position.coords);
-        console.log(CurrentLat);
-
+    useEffect(()=> {
+      navigator.geolocation.getCurrentPosition(position =>{
+        setUserLat(position.coords.latitude);
+        setUserLong(position.coords.longitude);
+        console.log(userLat, userLong);
       })
-    },[])
+    },[]);
 
     //update on form changes
     const handleChange = (event) => {
@@ -108,10 +104,12 @@ const AddSpotPage = (props) => {
         <GoogleMap 
         center={center} 
         zoom={15} 
-        mapContainerStyle={{width: "80%", height:"80%"}}>
-
+        mapContainerStyle={{width: "80%", height:"80%"}}
+        onLoad={map=>setMap(map)}
+        >
         </GoogleMap>
-        
+        <button onClick={()=> map.panTo({lat:userLat,lng:userLong})}>Pan Location</button>
+
       </div>
     );
 };
