@@ -30,21 +30,11 @@ const AddSpotForm = props => {
         setListing({...listing, [e.target.id]: e.target.value})
     }
 
-
     // handles form submission
     const handleSubmit = e => {
         e.preventDefault()
         dispatch(postListing(listing))
     }
-
-
-    React.useEffect(()=>{
-        navigator.geolocation.getCurrentPosition((position)=>{
-  
-          console.log(position.coords.latitude);
-        })
-      },[])
-
 
     return (
         <Form onSubmit={handleSubmit}>
@@ -56,6 +46,16 @@ const AddSpotForm = props => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Description</Form.Label>
             <Form.Control type="string" placeholder="Enter description" />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Worth it?</Form.Label>
+            <StarRating/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Difficulty</Form.Label>
+            <StarRating/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -71,16 +71,6 @@ const AddSpotForm = props => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Longitude</Form.Label>
             <Form.Control type="string" value={lng} />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Worth it?</Form.Label>
-            <StarRating/>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Difficulty</Form.Label>
-            <StarRating/>
             </Form.Group>
 
             <button onClick={getLocation}>Get Location</button>
