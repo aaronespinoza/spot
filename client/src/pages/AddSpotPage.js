@@ -94,7 +94,7 @@ const AddSpotPage = (props) => {
         <AddSpotForm></AddSpotForm>
 
         <GoogleMap 
-        center={center} 
+        center={{lat:userLat,lng:userLong}} 
         zoom={15} 
         mapContainerStyle={{width: "80%", height:"80%"}}
         onLoad={map=>setMap(map)}

@@ -1,7 +1,6 @@
 //import { getLocation } from "graphql";
 import React,{ useState, useEffect, useRef, useCallback } from "react"
 import { Form, Button } from "react-bootstrap"
-import CurrentLat from "./CurrentLat";
 import "../pages/AddSpotPage.css"
 import StarRating from "./StarRating";
 
@@ -9,26 +8,14 @@ import StarRating from "./StarRating";
 const AddSpotForm = props => {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
-    const [coord, setCoord] = useState(lat,lng);
-    // const [status, setStatus] = useState(null);
 
-
-    
     const getLocation = () => {
-        if (!navigator.geolocation) {
-          setStatus('Geolocation is not supported by your browser');
-        } else {
-          setStatus('Locating...');
+          console.log("good click")
           navigator.geolocation.getCurrentPosition((position) => {
-            setStatus(null);
             setLat(position.coords.latitude);
             setLng(position.coords.longitude);
-            //setCoord(position.coords);
-          }, () => {
-            setStatus('Unable to retrieve your location');
-          });
-        }
-      }
+          }
+    )};
 
     // sets state for blank listing
     const [listing, setListing] = useState({
@@ -87,6 +74,12 @@ const AddSpotForm = props => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Worth it?</Form.Label>
+            <StarRating/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Difficulty</Form.Label>
             <StarRating/>
             </Form.Group>
 
