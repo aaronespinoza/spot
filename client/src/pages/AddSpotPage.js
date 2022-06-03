@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../images/flag-svgrepo-com.svg";
 import { useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
@@ -30,6 +31,10 @@ const AddSpotPage = (props) => {
       })
     },[]);
 
+    // var flag = {
+    //   url:
+    // }
+
     if(!isLoaded){
      return <div value="loading"/>
     }
@@ -47,8 +52,14 @@ const AddSpotPage = (props) => {
             onLoad={map=>setMap(map)}
             >
                  <Marker
-                 key={1}
+                 key={12}
                  position={{lat:userLat, lng: userLong}}
+                 icon={{
+                   url: "https://www.svgrepo.com/show/289489/red-flag.svg",
+                   scaledSize: new window.google.maps.Size(40,40),
+                   origin: new window.google.maps.Point(0,0),
+                   anchor: new window.google.maps.Point(20,20)
+                 }}
                  />
             </GoogleMap>
           </Col>
