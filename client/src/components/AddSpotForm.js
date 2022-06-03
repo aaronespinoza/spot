@@ -2,6 +2,8 @@
 import React,{ useState, useEffect, useRef, useCallback } from "react"
 import { Form, Button } from "react-bootstrap"
 import CurrentLat from "./CurrentLat";
+import "../pages/AddSpotPage.css"
+import StarRating from "./StarRating";
 
 
 const AddSpotForm = props => {
@@ -82,6 +84,10 @@ const AddSpotForm = props => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Longitude</Form.Label>
             <Form.Control type="string" value={lng} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <StarRating/>
             </Form.Group>
 
             <button onClick={getLocation}>Get Location</button>

@@ -6,10 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
-
 import Auth from '../utils/auth';
-
 // import "./UpdatePage.css";
 import img3 from "../images/UpdateUser.png";
 import TeamSelect from "../components/TeamSelect";
@@ -17,9 +14,6 @@ import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
 import WrappedMap from "../components/Map";
 import CurrentLat from "../components/CurrentLat";
-
-
-
 import {
   Form,
   Button,
@@ -28,8 +22,6 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-
-
 
 const AddSpotPage = (props) => {
 
