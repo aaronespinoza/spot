@@ -52,7 +52,7 @@ const AddSpotPage = (props) => {
             onLoad={map=>setMap(map)}
             >
                  <Marker
-                 key={12}
+                 key={userLat,userLong}
                  position={{lat:userLat, lng: userLong}}
                  icon={{
                    url: "https://www.svgrepo.com/show/289489/red-flag.svg",
