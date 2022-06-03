@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
@@ -46,6 +46,10 @@ const AddSpotPage = (props) => {
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
             >
+                 <Marker
+                 key={1}
+                 position={{lat:userLat, lng: userLong}}
+                 />
             </GoogleMap>
           </Col>
         </Row>
