@@ -21,9 +21,8 @@ import SearchPage from './pages/SearchPage';
 import LoginPage from './pages/Login'
 import UpdatePage from './pages/UpdatePage'
 import HomeBg from './components/HomeBg';
-import AddSpotPage from './pages/AddSpotPage'
-
-
+import AddSpotPage from './pages/AddSpotPage';
+import ExplorePage from './pages/ExplorePage'
 
 
 // Construct our main GraphQL API endpoint
@@ -72,7 +71,6 @@ function App() {
             </Route>
 
             <Route exact path="/NBA">
-              
               <SearchPage/>
             </Route>
 
@@ -82,8 +80,11 @@ function App() {
             </Route> */}
 
             <Route exact path="/addspot">
-              
               <AddSpotPage/>
+            </Route>
+
+            <Route exact path="/explore">
+              <ExplorePage/>
             </Route>
          
       </Router>
