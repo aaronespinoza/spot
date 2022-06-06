@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
+import List from '../components/List';
 import {
   Row,
   Col,
@@ -20,6 +21,7 @@ const ExplorePage = (props) => {
     const[map, setMap]= useState( /** @type google.maps.GoogleMap */ (null))
     const[userLat, setUserLat]= useState();
     const[userLong, setUserLong]= useState();
+    const [spots, setSpots] = useState([]);
 
     //Finds users location
 
@@ -38,7 +40,7 @@ const ExplorePage = (props) => {
       <div>
         <Row>
           <Col>
-            <AddSpotForm></AddSpotForm>
+            <List></List>
           </Col>
           <Col>
             <GoogleMap 
@@ -47,6 +49,7 @@ const ExplorePage = (props) => {
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
             >
+                
                  <Marker
                  key={userLat,userLong}
                  position={{lat:userLat, lng: userLong}}
