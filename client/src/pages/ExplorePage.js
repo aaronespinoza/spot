@@ -8,6 +8,7 @@ import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
 import List from '../components/List';
+import SpotDetails from '../components/SpotDetails';
 import {
   Row,
   Col,
@@ -49,17 +50,15 @@ const ExplorePage = (props) => {
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
             >
-                
-                 <Marker
-                 key={userLat,userLong}
-                 position={{lat:userLat, lng: userLong}}
-                 icon={{
-                   url: "https://www.svgrepo.com/show/289489/red-flag.svg",
-                   scaledSize: new window.google.maps.Size(40,40),
-                   origin: new window.google.maps.Point(0,0),
-                   anchor: new window.google.maps.Point(20,20)
-                 }}
-                 />
+                {SpotDetails.map(spot=>(
+                  <Marker
+                   key={spot.id}
+                   position={{
+                     lat: spot.latitude,
+                     lng: spot.longitude
+                    }}
+                    />
+                ))}
             </GoogleMap>
           </Col>
         </Row>
