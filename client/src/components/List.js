@@ -4,6 +4,7 @@ import SpotDetails from './SpotDetails';
 import { selectHttpOptionsAndBodyInternal, useMutation } from '@apollo/client';
 import { ADD_SPOT } from '../utils/mutations';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+
 import {
   Row,
   Col,
@@ -16,12 +17,6 @@ import {
 const List = () => {
 
    const [rating, setRating]= useState("");
-   const cardInfo = [
-       {title: "Cold Beer", text: "testttttjjjj"},
-       {title: "Lascaris", text: "testttttjjjj"},
-       {title: "Chacos", text: "testttttjjjj"},
-
-   ];
 
    const renderCard= (card, index)=>{
        return(
@@ -51,7 +46,7 @@ const List = () => {
             </Dropdown.Menu>
         </Dropdown>
 
-       {cardInfo.map(renderCard)}
+       {SpotDetails.map(renderCard)}
 
 
       </div>

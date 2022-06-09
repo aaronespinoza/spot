@@ -7,32 +7,18 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
-import List from '../components/List';
 import SpotDetails from '../components/SpotDetails';
 import {
   Row,
   Col,
 } from "react-bootstrap";
 
-const ExplorePage = (props) => {
+const SpotPage = (props) => {
 
     const {isLoaded}= useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     })
     const[map, setMap]= useState( /** @type google.maps.GoogleMap */ (null))
-    const[userLat, setUserLat]= useState();
-    const[userLong, setUserLong]= useState();
-    const [spots, setSpots] = useState([]);
-
-    //Finds users location
-
-    useEffect(()=> {
-      navigator.geolocation.getCurrentPosition(position =>{
-        setUserLat(position.coords.latitude);
-        setUserLong(position.coords.longitude);
-        console.log(userLat, userLong);
-      })
-    },[]);
 
     if(!isLoaded){
      return <div value="loading"/>
@@ -41,24 +27,25 @@ const ExplorePage = (props) => {
       <div>
         <Row>
           <Col>
-            <List></List>
+            <AddSpotForm></AddSpotForm>
           </Col>
           <Col>
             <GoogleMap 
-            center={{lat:userLat,lng:userLong}} 
-            zoom={14} 
+            center={{lat:SpotDetails[0].latitude, lng: SpotDetails[0].longitude}} 
+            zoom={15} 
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
             >
-                {SpotDetails.map(spot=>(
-                  <Marker
-                   key={spot.id}
-                   position={{
-                     lat: spot.latitude,
-                     lng: spot.longitude
-                    }}
-                    />
-                ))}
+                 <Marker
+                 key={SpotDetails[0].id}
+                 position={{lat:SpotDetails[0].latitude, lng: SpotDetails[0].longitude}}
+                 icon={{
+                   url: "https://www.svgrepo.com/show/289489/red-flag.svg",
+                   scaledSize: new window.google.maps.Size(40,40),
+                   origin: new window.google.maps.Point(0,0),
+                   anchor: new window.google.maps.Point(20,20)
+                 }}
+                 />
             </GoogleMap>
           </Col>
         </Row>
@@ -66,4 +53,4 @@ const ExplorePage = (props) => {
     );
 };
 
-export default ExplorePage;
+export default SpotPage;
