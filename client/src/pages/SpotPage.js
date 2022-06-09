@@ -6,7 +6,7 @@ import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
-import AddSpotForm from "../components/AddSpotForm";
+import SpotInfo from '../components/SpotInfo';
 import SpotDetails from '../components/SpotDetails';
 import {
   Row,
@@ -27,7 +27,7 @@ const SpotPage = (props) => {
       <div>
         <Row>
           <Col>
-            <AddSpotForm></AddSpotForm>
+            <SpotInfo></SpotInfo>
           </Col>
           <Col>
             <GoogleMap 
