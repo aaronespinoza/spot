@@ -8,6 +8,7 @@ import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import SpotInfo from '../components/SpotInfo';
 import SpotDetails from '../components/SpotDetails';
+import CarouselFade from '../components/CarouselFade';
 import {
   Row,
   Col,
@@ -25,6 +26,9 @@ const SpotPage = (props) => {
     }
     return (
       <div>
+        <Row>
+          <CarouselFade></CarouselFade>
+        </Row>
         <Row>
           <Col>
             <SpotInfo></SpotInfo>
