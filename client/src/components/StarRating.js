@@ -17,12 +17,14 @@ const StarRating = () =>{
                     type="radio" 
                     name="rating" 
                     value={ratingValue}
+                    
                     onClick={()=> setRating(ratingValue)}
                     />
                     <FaStar 
                     className="star" 
                     color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                     size={25}
+                    key={i}
                     onMouseEnter={()=> setHover(ratingValue)}
                     onMouseLeave={()=> setHover(null)}
                     />

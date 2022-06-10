@@ -4,6 +4,7 @@ import { Form, Button } from "react-bootstrap"
 import "../pages/AddSpotPage.css"
 import StarRating from "./StarRating";
 import Difficulty from "./Difficulty";
+import Tags from '../components/Tags';
 import {
     Row,
     Col,
@@ -94,6 +95,13 @@ const AddSpotForm = props => {
             </Form.Group>
 
             </Col>
+            </Row>
+            
+            <Row>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Tags</Form.Label>
+            <Tags/>
+            </Form.Group>
             </Row>
 
             <button onClick={getLocation}>Get Location</button>

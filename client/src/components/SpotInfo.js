@@ -2,57 +2,43 @@
 import React,{ useState, useEffect, useRef, useCallback } from "react"
 import { Form, Button } from "react-bootstrap"
 import "../pages/AddSpotPage.css"
-import StarRating from "./StarRating";
+//import StarRating from "./StarRating";
 import SpotDetails from '../components/SpotDetails';
+import StarDisplay from "./StarDisplay";
 
 import {
     Row,
     Col,
+    Card
   } from "react-bootstrap";
 
 
 const SpotInfo = props => {
 
-    
 
     return (
-        <Form >
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Title</Form.Label>
-            <Form.Control type="string" placeholder="Enter title" readOnly="true"/>
-            </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Description</Form.Label>
-            <Form.Control type="string" placeholder="Enter description" readOnly="true"/>
-            </Form.Group>
-
+        <>
+        <Card style={{ width: '18rem' }}>
+        <Card.Body>
+            <Card.Title>{SpotDetails[0].title}</Card.Title>
             <Row>
             <Col>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Worth it?</Form.Label>
-            <StarRating/>
-            </Form.Group>
-
+            <Button variant="warning"  type="submit" value="2" size="sm">challenging</Button>{' '}
             </Col>
             <Col>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Difficulty</Form.Label>
-            <StarRating/>
-            </Form.Group>
-
+            <StarDisplay/>
             </Col>
             </Row>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Image</Form.Label>
-            <Form.Control type="string" placeholder="Enter Image" readOnly="true"/>
-            </Form.Group>
-                     
+            <Card.Subtitle className="mb-2 text-muted">{SpotDetails[0].text}</Card.Subtitle>
+            
 
-        </Form>
+        </Card.Body>
+        </Card>
+        
+        
+        </>
     )
 }
 

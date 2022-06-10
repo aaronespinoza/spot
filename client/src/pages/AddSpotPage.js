@@ -7,7 +7,6 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
-import Tags from '../components/Tags';
 import {
   Row,
   Col,
@@ -44,7 +43,6 @@ const AddSpotPage = (props) => {
         <Row>
           <Col>
             <AddSpotForm></AddSpotForm>
-            <Tags></Tags>
           </Col>
           <Col>
             <GoogleMap 
