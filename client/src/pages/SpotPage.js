@@ -9,6 +9,7 @@ import Map from "../components/Map";
 import SpotInfo from '../components/SpotInfo';
 import SpotDetails from '../components/SpotDetails';
 import CarouselFade from '../components/CarouselFade';
+import SpotTabs from '../components/SpotTabs';
 import {
   Row,
   Col,
@@ -27,7 +28,9 @@ const SpotPage = (props) => {
     return (
       <div>
         <Row>
+          <Col md={{ span: 6, offset: 3 }}>
           <CarouselFade></CarouselFade>
+          </Col>
         </Row>
         <Row>
           <Col>
@@ -52,6 +55,9 @@ const SpotPage = (props) => {
                  />
             </GoogleMap>
           </Col>
+        </Row>
+        <Row>
+          <SpotTabs></SpotTabs>
         </Row>
       </div>
     );

@@ -3,6 +3,7 @@ import React,{ useState, useEffect, useRef, useCallback } from "react"
 import { Form, Button } from "react-bootstrap"
 import "../pages/AddSpotPage.css"
 import StarRating from "./StarRating";
+import Difficulty from "./Difficulty";
 import {
     Row,
     Col,
@@ -65,7 +66,7 @@ const AddSpotForm = props => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Difficulty</Form.Label>
-            <StarRating/>
+            <Difficulty/>
             </Form.Group>
 
             </Col>
@@ -81,7 +82,7 @@ const AddSpotForm = props => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Latitude</Form.Label>
-            <Form.Control type="string" value={lat} readOnly="true"/>
+            <Form.Control type="string" value={lat} readOnly={true}/>
             </Form.Group>
 
             </Col>
@@ -89,7 +90,7 @@ const AddSpotForm = props => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Longitude</Form.Label>
-            <Form.Control type="string" value={lng} readOnly="true" />
+            <Form.Control type="string" value={lng} readOnly={true} />
             </Form.Group>
 
             </Col>

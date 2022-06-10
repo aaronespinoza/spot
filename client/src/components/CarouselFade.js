@@ -1,23 +1,26 @@
 import Carousel from 'react-bootstrap/Carousel';
+import SpotDetails from '../components/SpotDetails';
+
 
 function CarouselFade() {
   return (
+    
     <Carousel fade>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src="https://photos.smugmug.com/photos/i-Zrr6jVN/1/X2/i-Zrr6jVN-X2.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
+          <h3> {SpotDetails[0].title} </h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="https://photos.smugmug.com/photos/i-gDRZRv6/1/X3/i-gDRZRv6-X3.jpg"
           alt="Second slide"
         />
 
@@ -29,7 +32,7 @@ function CarouselFade() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="https://photos.smugmug.com/photos/i-kCkd4Fz/1/X3/i-kCkd4Fz-X3.jpg"
           alt="Third slide"
         />
 
