@@ -12,11 +12,20 @@ const typeDefs = gql`
 
   type Spots {
     _id: ID
-    explorers: [User]
+    explorers: String
     description: String
-    coordinates: String
-    image: String
+    latitude: Number
+    longitude: Number
     title: String
+  }
+
+  type Reviews {
+    _id: ID
+    description: String
+    rating: Number
+    tag: String
+    difficulty: Number
+    image: String
   }
 
   type Auth {

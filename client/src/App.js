@@ -24,6 +24,7 @@ import HomeBg from './components/HomeBg';
 import AddSpotPage from './pages/AddSpotPage';
 import ExplorePage from './pages/ExplorePage'
 import SpotPage from './pages/SpotPage';
+import ProfilePage from './pages/ProfilePage';
 
 
 // Construct our main GraphQL API endpoint
@@ -90,6 +91,10 @@ function App() {
 
             <Route exact path="/spot">
               <SpotPage/>
+            </Route>
+
+            <Route exact path="/profile">
+              <ProfilePage/>
             </Route>
          
       </Router>

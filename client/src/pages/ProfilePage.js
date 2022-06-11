@@ -5,18 +5,14 @@ import { ADD_SPOT } from '../utils/mutations';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
-import Map from "../components/Map";
-import AddSpotForm from "../components/AddSpotForm";
 import List from '../components/List';
 import SpotDetails from '../components/SpotDetails';
-import SearchBar from '../components/SearchBar';
 import {
   Row,
   Col,
-  Container,
 } from "react-bootstrap";
 
-const ExplorePage = (props) => {
+const ProfilePage = (props) => {
 
     const {isLoaded}= useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -41,38 +37,31 @@ const ExplorePage = (props) => {
     }
     return (
       <div>
-        <Container>
-          <Row>
-            <Col md={4}>
-            <SearchBar></SearchBar>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={4}>
-              <List></List>
-            </Col>
-            <Col md={8}>
-              <GoogleMap 
-              center={{lat:userLat,lng:userLong}} 
-              zoom={14} 
-              mapContainerStyle={{width: "100%", height:"100%"}}
-              onLoad={map=>setMap(map)}
-              >
-                  {SpotDetails.map(spot=>(
-                    <Marker
-                    key={spot.id}
-                    position={{
-                      lat: spot.latitude,
-                      lng: spot.longitude
-                      }}
-                      />
-                  ))}
-              </GoogleMap>
-            </Col>
-          </Row>
-        </Container>
+        <Row>
+          <Col>
+            <List></List>
+          </Col>
+          <Col>
+            <GoogleMap 
+            center={{lat:userLat,lng:userLong}} 
+            zoom={14} 
+            mapContainerStyle={{width: "100%", height:"100%"}}
+            onLoad={map=>setMap(map)}
+            >
+                {SpotDetails.map(spot=>(
+                  <Marker
+                   key={spot.id}
+                   position={{
+                     lat: spot.latitude,
+                     lng: spot.longitude
+                    }}
+                    />
+                ))}
+            </GoogleMap>
+          </Col>
+        </Row>
       </div>
     );
 };
 
-export default ExplorePage;
+export default ProfilePage;
