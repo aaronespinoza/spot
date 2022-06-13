@@ -1,7 +1,9 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const dateFormat = require('../utils/dateFormat');
 
-const spotsSchema = require('./Spots');
+
+//const spotsSchema = require('./Spots');
 
 const userSchema = new Schema({
   firstName: {
@@ -16,6 +18,17 @@ const userSchema = new Schema({
     
     trim: true,
   },
+  spots: [
+    {
+      spotTitle: {
+        type: String,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
+  }],
   email: {
     type: String,
     required: true,
@@ -27,7 +40,6 @@ const userSchema = new Schema({
     required: true,
     minLength: 5,
   },
-  spots: [spotsSchema],
 });
 
 userSchema.pre('save', async function (next) {

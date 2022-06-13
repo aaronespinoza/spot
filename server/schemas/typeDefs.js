@@ -37,6 +37,7 @@ const typeDefs = gql`
     spots:[Spots]
     spot(spotId: ID!): Spots
     users: [User]
+    me: User
 
   }
 

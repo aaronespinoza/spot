@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+//Import schema form Reviews.js
+//const Reviews = require('./Reviews');
 
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
 
@@ -30,6 +32,13 @@ const spotsSchema = new Schema({
     minLength: 1,
     maxLength: 280,
   },
+
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Reviews',
+    },
+  ],
 
   createdAt: {
     type: Date,
