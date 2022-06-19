@@ -24,16 +24,20 @@ const AddSpotForm = props => {
     )};
 
     // sets state for blank listing
-    const [listing, setListing] = useState({
-        name: "",
+    const [spotFormData, setSpotFormData] = useState({
+        title: "",
         description: "",
-        image: {},
-        latLng: props.location
-    })
+        latitude: "",
+        longitude: "",
+    });
+
+    //set state for validation
+    const[validated]= useState(false);
 
     // adds form change handling
-    const handleChange = e => {
-        setListing({...listing, [e.target.id]: e.target.value})
+    const handleInputChange = (event) => {
+        const{name, value}= event.target;
+        setSpotFormData({...setSpotFormData, [name]: value})
     }
 
     // handles form submission

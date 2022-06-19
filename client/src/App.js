@@ -96,6 +96,8 @@ function App() {
             <Route exact path="/profile">
               <ProfilePage/>
             </Route>
+
+            <Route render={()=> <h1 className="display-2">Wrong Page</h1>} />
          
       </Router>
     </ApolloProvider>

@@ -17,6 +17,7 @@ const typeDefs = gql`
     latitude: Number
     longitude: Number
     title: String
+    reviews: [Reviews]
   }
 
   type Reviews {
@@ -26,6 +27,7 @@ const typeDefs = gql`
     tag: String
     difficulty: Number
     image: String
+    spot: Spots
   }
 
   type Auth {
@@ -38,12 +40,14 @@ const typeDefs = gql`
     spot(spotId: ID!): Spots
     users: [User]
     me: User
+    reviews: [Reviews]
 
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addSpot(coordinates: String!, title: String!): Auth
+    addSpot(latitude: Number!, longitude: Number!, title: String!): Auth
+    addReview(difficulty: Number!): Auth
     login(email: String!, password: String!): Auth
     removeUser(userId: ID!): User
     removeSpot(spotId: ID!): Auth

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Spots } = require('../models');
+const { User, Spots, Reviews } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -24,11 +24,17 @@ const resolvers = {
     spot: async (parent, { spotId }) => {
       return Spots.findOne({ _id: spotId });
     },
-    users: async () => {
+    spotReviews:async () => {
+      return await Spots.find({}).populate('reviews');
+    },
+     users: async () => {
       return User.find().populate('spots');
     },
     user: async (parent, { email }) => {
       return User.findOne({ email }).populate('spots');
+    },
+    reviews: async () => {
+      return await Reviews.find({}).populate('spots');
     },
 
   },
@@ -68,6 +74,19 @@ const resolvers = {
 
         return spot;
       }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    saveSpot: async (parent, { bookData }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { spots: bookData } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
       throw new AuthenticationError('You need to be logged in!');
     },
     removeUser: async (parent, args, context) => {

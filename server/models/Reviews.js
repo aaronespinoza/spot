@@ -3,6 +3,11 @@ const dateFormat = require('../utils/dateFormat');
 
 const reviewsSchema = new Schema({
 
+  spot: {
+    type: Schema.Types.ObjectId,
+    ref: 'Spots'
+  },
+
   description: {
     type: String,
     maxlength: 280,

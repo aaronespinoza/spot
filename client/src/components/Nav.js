@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from './Login';
 import SignUp from './SignUp';
+
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
@@ -38,6 +39,16 @@ return(
   </Nav>
   <Login showLogin={props.showLogin} handleCloseLogin={props.handleCloseLogin}/> 
   <SignUp show={props.show} handleClose={props.handleClose} />
+  <Link to="/explore" >
+    Explore
+  </Link>
+  <Link to="/addspot" >
+    Add Spot
+  </Link>
+  <Link to="/spot" >
+    Spot
+  </Link>
+
   </Container>
 </Navbar>
 )
