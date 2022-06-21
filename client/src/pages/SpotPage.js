@@ -10,6 +10,7 @@ import SpotInfo from '../components/SpotInfo';
 import SpotDetails from '../components/SpotDetails';
 import CarouselFade from '../components/CarouselFade';
 import SpotTabs from '../components/SpotTabs';
+import mapStyles from '../utils/mapStyles';
 import {
   Row,
   Col,
@@ -42,6 +43,9 @@ const SpotPage = (props) => {
             zoom={15} 
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
+            options={{ styles: mapStyles,
+              disableDefaultUI: true,
+              zoomControl:true}}
             >
                  <Marker
                  key={SpotDetails[0].id}

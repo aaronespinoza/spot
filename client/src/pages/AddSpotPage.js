@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
+import mapStyles from '../utils/mapStyles';
 import {
   Row,
   Col,
@@ -50,6 +51,9 @@ const AddSpotPage = (props) => {
             zoom={15} 
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
+            options={{ styles: mapStyles,
+              disableDefaultUI: true,
+              zoomControl:true}}
             >
                  <Marker
                  key={userLat,userLong}

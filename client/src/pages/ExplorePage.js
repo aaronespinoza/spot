@@ -10,6 +10,7 @@ import AddSpotForm from "../components/AddSpotForm";
 import List from '../components/List';
 import SpotDetails from '../components/SpotDetails';
 import SearchBar from '../components/SearchBar';
+import mapStyles from '../utils/mapStyles';
 import {
   Row,
   Col,
@@ -57,6 +58,9 @@ const ExplorePage = (props) => {
               zoom={14} 
               mapContainerStyle={{width: "100%", height:"100%"}}
               onLoad={map=>setMap(map)}
+              options={{ styles: mapStyles,
+                          disableDefaultUI: true,
+                          zoomControl:true}}
               >
                   {SpotDetails.map(spot=>(
                     <Marker
