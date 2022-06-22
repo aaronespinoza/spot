@@ -14,7 +14,11 @@ import mapStyles from '../utils/mapStyles';
 import {
   Row,
   Col,
+  Container
 } from "react-bootstrap";
+import "./SpotPage.css";
+
+
 
 const SpotPage = (props) => {
 
@@ -28,19 +32,27 @@ const SpotPage = (props) => {
     }
     return (
       <div>
+        <SpotInfo className="infoCont"></SpotInfo>
         <Row>
-          <Col md={{ span: 6, offset: 3 }}>
-          <CarouselFade></CarouselFade>
+          <Col md={{ span: 10, offset: 1 }} >
+
+            <Container className="carouselContainer">
+
+              <CarouselFade></CarouselFade>
+            </Container>
           </Col>
         </Row>
+        <Container >
+        <SpotInfo ></SpotInfo>
+        </Container>
         <Row>
           <Col>
-            <SpotInfo></SpotInfo>
+          <SpotTabs></SpotTabs>
           </Col>
           <Col>
             <GoogleMap 
             center={{lat:SpotDetails[0].latitude, lng: SpotDetails[0].longitude}} 
-            zoom={15} 
+            zoom={14} 
             mapContainerStyle={{width: "100%", height:"100%"}}
             onLoad={map=>setMap(map)}
             options={{ styles: mapStyles,
@@ -60,9 +72,7 @@ const SpotPage = (props) => {
             </GoogleMap>
           </Col>
         </Row>
-        <Row>
-          <SpotTabs></SpotTabs>
-        </Row>
+        
       </div>
     );
 };

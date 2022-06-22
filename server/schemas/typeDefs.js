@@ -36,11 +36,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    spots:[Spots]
+    spots(email:String):[Spots]
     spot(spotId: ID!): Spots
     users: [User]
     me: User
-    reviews: [Reviews]
 
   }
 
@@ -50,7 +49,7 @@ const typeDefs = gql`
     addReview(difficulty: Number!): Auth
     login(email: String!, password: String!): Auth
     removeUser(userId: ID!): User
-    removeSpot(spotId: ID!): Auth
+    removeSavedSpot(spot: ID!): Auth
     updateSpot( id: ID!, title: String!): Auth
   }
 `;

@@ -10,11 +10,13 @@ import {
     Container, 
     Nav,
   Button} from "react-bootstrap"
+import "./Nav.css"
 
-  function Navigation(props){
+
+function Navigation(props){
 
 return(
-    <Navbar bg="dark" variant="dark">
+<Navbar className="nav">
   <Container>
   <Nav className="me-auto">
               

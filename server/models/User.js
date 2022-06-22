@@ -19,16 +19,9 @@ const userSchema = new Schema({
     trim: true,
   },
   spots: [
-    {
-      spotTitle: {
-        type: String,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
-  }],
+    {type: Schema.Types.ObjectId, 
+      ref: 'Spots'}
+    ],
   email: {
     type: String,
     required: true,

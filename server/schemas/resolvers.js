@@ -7,35 +7,29 @@ const resolvers = {
     // Query to do to display data to the profile page or anything to do with the logged in user
     me: async(parent, args, context) => {
       if(context.user) {
-        const userData = await User.findOne({_id: context.user._id })
-        .select('-__v -password')
-
-        return userData;
+        return User.findOne({_id: context.user._id }).populate("spots");
       }
       throw new AuthenticationError('Not Logged In')
     },
-    spots: async(parent, args, context) => {
+    spots: async(parent, {email}) => {
       if(context.user) {
         const params = email ? { email } : {};
         return Spots.find(params).sort({ createdAt: -1 });
       }
-      throw new AuthenticationError('Not Logged In')
     },
     spot: async (parent, { spotId }) => {
       return Spots.findOne({ _id: spotId });
     },
-    spotReviews:async () => {
+    spotReviews:async (parent,{email}) => {
       return await Spots.find({}).populate('reviews');
     },
-     users: async () => {
+    users: async () => {
       return User.find().populate('spots');
     },
     user: async (parent, { email }) => {
       return User.findOne({ email }).populate('spots');
     },
-    reviews: async () => {
-      return await Reviews.find({}).populate('spots');
-    },
+  
 
   },
 
@@ -95,19 +89,14 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeSpot: async (parent, { spotId }, context) => {
+    removeSavedSpot: async (parent, { spotId }, context) => {
       if (context.user) {
-        const spot = await Spots.findOneAndDelete({
-          _id: spotId,
-          explorers: context.user.email,
-        });
+        return User.findOneAndDelete(
+          {_id: context.user._id},
+          {$pull:{spots:spot}},
+          {new:true}
+          );
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { spots: spot._id } }
-        );
-
-        return spot;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
