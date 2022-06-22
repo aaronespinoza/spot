@@ -41,7 +41,7 @@ const ExplorePage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div>
+      <div >
         <Container>
           <Row>
             <Col md={4}>

@@ -31,7 +31,7 @@ const SpotPage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div>
+      <div className="papa">
         <SpotInfo className="infoCont"></SpotInfo>
         <Row>
           <Col md={{ span: 10, offset: 1 }} >
@@ -42,9 +42,6 @@ const SpotPage = (props) => {
             </Container>
           </Col>
         </Row>
-        <Container >
-        <SpotInfo ></SpotInfo>
-        </Container>
         <Row>
           <Col>
           <SpotTabs></SpotTabs>

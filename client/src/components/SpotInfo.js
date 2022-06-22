@@ -9,8 +9,10 @@ import StarDisplay from "./StarDisplay";
 import {
     Row,
     Col,
-    Card
+    Card,
+    Container
   } from "react-bootstrap";
+import "./SpotInfo.css";
 
 
 const SpotInfo = props => {
@@ -21,17 +23,17 @@ const SpotInfo = props => {
         <>
         <Card style={{ width: '18rem' }}>
         <Card.Body>
-            <Card.Title>{SpotDetails[0].title}</Card.Title>
+            <Card.Title className="spotTitle">{SpotDetails[0].title}</Card.Title>
             <Row>
             <Col>
-            <Button variant="warning"  type="submit" value="2" size="sm">challenging</Button>{' '}
+            <Button className="difficultyBtn" variant="warning"  type="submit" value="2" size="sm">challenging</Button>{' '}
             </Col>
             <Col>
             <StarDisplay/>
             </Col>
             </Row>
 
-            <Card.Subtitle className="mb-2 text-muted">{SpotDetails[0].text}</Card.Subtitle>
+            <Card.Subtitle className="mb-2 text-muted location">{SpotDetails[0].text}</Card.Subtitle>
             
 
         </Card.Body>

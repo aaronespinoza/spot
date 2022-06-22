@@ -1,11 +1,13 @@
 import Carousel from 'react-bootstrap/Carousel';
 import SpotDetails from '../components/SpotDetails';
+import SpotInfo from './SpotInfo';
+import "./CarouselFade.css"
 
 
 function CarouselFade() {
   return (
-    
-    <Carousel fade>
+    <>
+    <Carousel className="shaker"fade>
       <Carousel.Item>
         <img
           className=" d-block w-100 "
@@ -39,6 +41,8 @@ function CarouselFade() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    <SpotInfo className="mover"></SpotInfo>
+    </>
   );
 }
 
