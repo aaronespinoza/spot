@@ -52,6 +52,8 @@ return(
     )}
     
   </Nav>
+  <Login showLogin={props.showLogin} handleCloseLogin={props.handleCloseLogin}/> 
+  <SignUp show={props.show} handleClose={props.handleClose} />
 
   </Container>
 </Navbar>
