@@ -1,4 +1,34 @@
-.navbar{
-    background-color: 31, 126, 255;
-    color: blueviolet;
+.navi{
+    background-color: #2280D8 !important;
+    color: whitesmoke ;
+    position: relative;
+    
+}
+
+.cont{
+    color: whitesmoke ;
+
+}
+.nav-link{
+    color: whitesmoke !important;
+
+}
+link{
+    color: whitesmoke !important;
+
+}
+.spot{
+    object-position: center center !important;
+    text-align: center !important;
+    margin-left: 49vw;
+    color: whitesmoke !important;
+    font-weight: bolder;
+    font-size: 180%;
+    
+
+}
+.navbar-brand{
+    position: absolute;
+    color: thistle;
+
 }

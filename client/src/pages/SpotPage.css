@@ -7,14 +7,7 @@
     z-index: .5;
 
 }
-/* 
-.infoCont{
-       position:absolute;
-       right: 100px;
-       top: 500px;
-       z-index: 1000;
-       box-shadow: 5px 10px 10px rgb(148, 146, 146);
-} */
+
 .papa{
     position: relative;
 }

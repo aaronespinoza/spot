@@ -40,7 +40,6 @@ const SpotPage = (props) => {
               <SpotInfo className="infoCont"></SpotInfo>
 
 
-              {/* <Carousel></Carousel> */}
             </Container>
           </Col>
         </Row>

@@ -16,9 +16,12 @@ import "./Nav.css"
 function Navigation(props){
 
 return(
-<Navbar className="nav">
-  <Container>
+<Navbar className="navi">
+  <Navbar.Brand className="spot">SpXt</Navbar.Brand>
+
+  <Container className="cont">
   <Nav className="me-auto">
+
               
               {Auth.loggedIn() ? (
                 <>
@@ -35,21 +38,20 @@ return(
                 <>
                   <Nav.Link  onClick={props.handleShowLogin}>Login</Nav.Link>
                   <Nav.Link href="#features"onClick={props.handleShow}>Sign Up</Nav.Link>
+                  <Nav.Link as={Link} to='/explore'>
+                    Explore
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/addspot'>
+                    Add Spot
+                  </Nav.Link>
+                  <Nav.Link  as={Link} to='/spot'>
+                    Spot
+                  </Nav.Link>
+
                 </>
     )}
     
   </Nav>
-  <Login showLogin={props.showLogin} handleCloseLogin={props.handleCloseLogin}/> 
-  <SignUp show={props.show} handleClose={props.handleClose} />
-  <Link to="/explore" >
-    Explore
-  </Link>
-  <Link to="/addspot" >
-    Add Spot
-  </Link>
-  <Link to="/spot" >
-    Spot
-  </Link>
 
   </Container>
 </Navbar>
