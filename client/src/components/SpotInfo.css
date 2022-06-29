@@ -1,7 +1,21 @@
-.card{
-    background-color: transparent;
-    box-shadow: 5px 10px 10px rgb(148, 146, 146);
+.parent{
+    position: relative;
+    /* background-color: rgb(226, 43, 150);
     border: transparent;
+    height: 50vh;
+    width: 100%;
+    z-index: 1; */
+
+
+}
+
+.card{
+    bottom: 0px;
+    position:absolute;
+    background-color: transparent;
+    border: transparent;
+    z-index: 5;
+    display: flex;
 
 
 }
@@ -27,9 +41,12 @@
 }
 .location{
     margin-top: 2% ;
+    color: white;
 }
 
 .spotTitle{
     font-size: xx-large;
     margin-bottom: .5%;
+    font-weight: bold;
+    color: white;
 }

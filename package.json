@@ -14,7 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "sass": "^1.53.0"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.11.8",

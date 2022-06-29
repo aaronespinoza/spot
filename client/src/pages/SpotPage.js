@@ -8,15 +8,16 @@ import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import SpotInfo from '../components/SpotInfo';
 import SpotDetails from '../components/SpotDetails';
-import CarouselFade from '../components/CarouselFade';
+//import CarouselFade from '../components/CarouselFade';
 import SpotTabs from '../components/SpotTabs';
 import mapStyles from '../utils/mapStyles';
+import Carousel from "../components/Carousel"
 import {
   Row,
   Col,
   Container
 } from "react-bootstrap";
-import "./SpotPage.css";
+//import "./SpotPage.css";
 
 
 
@@ -38,7 +39,7 @@ const SpotPage = (props) => {
 
             <Container className="carouselContainer">
 
-              <CarouselFade></CarouselFade>
+              {/* <Carousel></Carousel> */}
             </Container>
           </Col>
         </Row>
