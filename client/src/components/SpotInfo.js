@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap"
 import SpotDetails from '../components/SpotDetails';
 import StarDisplay from "./StarDisplay";
 import Carousel from './Carousel';
+import CarouselFade from "./CarouselFade"
 
 
 import {
@@ -25,7 +26,7 @@ const SpotInfo = props => {
         <>
         <div className="parent">
         
-            <Carousel></Carousel>
+            <CarouselFade></CarouselFade>
             <Card style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title className="spotTitle">{SpotDetails[0].title}</Card.Title>

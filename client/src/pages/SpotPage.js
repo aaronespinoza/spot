@@ -17,7 +17,7 @@ import {
   Col,
   Container
 } from "react-bootstrap";
-//import "./SpotPage.css";
+import "./SpotPage.css";
 
 
 
@@ -32,22 +32,23 @@ const SpotPage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div className="papa">
-        <SpotInfo className="infoCont"></SpotInfo>
+      <div className="papa" md={{ span: 10, offset: 1 }}>
         <Row>
           <Col md={{ span: 10, offset: 1 }} >
 
             <Container className="carouselContainer">
+              <SpotInfo className="infoCont"></SpotInfo>
+
 
               {/* <Carousel></Carousel> */}
             </Container>
           </Col>
         </Row>
-        <Row>
-          <Col>
+        <Row >
+          <Col >
           <SpotTabs></SpotTabs>
           </Col>
-          <Col>
+          <Col >
             <GoogleMap 
             center={{lat:SpotDetails[0].latitude, lng: SpotDetails[0].longitude}} 
             zoom={14} 

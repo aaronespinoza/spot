@@ -1,4 +1,4 @@
-.shaker{
+/* .shaker{
     position:relative;
      
        z-index: 1;
@@ -8,4 +8,16 @@
        right: 0px;
        top:0px;
        z-index: 1000;
+} */
+.img{
+    object-position: center center;
+    object-fit: cover;
+    overflow:hidden; 
+    height:50vh;
+}
+.carousel-control-prev-icon{
+    visibility: hidden;
+}
+.carousel-control-next-icon{
+    visibility: hidden;
 }
