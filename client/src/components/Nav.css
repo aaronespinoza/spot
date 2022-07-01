@@ -20,10 +20,10 @@ link{
 .spot{
     object-position: center center !important;
     text-align: center !important;
-    margin-left: 49vw;
+    margin-left: 48vw;
     color: whitesmoke !important;
     font-weight: bolder;
-    font-size: 180%;
+    font-size: 200%;
     
 
 }
@@ -31,4 +31,8 @@ link{
     position: absolute;
     color: thistle;
 
+}
+.icon{
+    color:rgb(127, 212, 149);
+    border-radius: 50%;
 }

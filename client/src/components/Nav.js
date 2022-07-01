@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from './Login';
 import SignUp from './SignUp';
-
+import {FaTimesCircle} from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 
@@ -17,7 +17,7 @@ function Navigation(props){
 
 return(
 <Navbar className="navi">
-  <Navbar.Brand className="spot">SpXt</Navbar.Brand>
+  <Navbar.Brand className="spot">Sp<FaTimesCircle className="icon"/>t</Navbar.Brand>
 
   <Container className="cont">
   <Nav className="me-auto">
