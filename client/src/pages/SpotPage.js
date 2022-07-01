@@ -32,16 +32,11 @@ const SpotPage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div className="papa" md={{ span: 10, offset: 1 }}>
+      <div className="papa">
         <Row>
-          <Col md={{ span: 10, offset: 1 }} >
+          
+          <SpotInfo className="infoCont"></SpotInfo>
 
-            <Container className="carouselContainer">
-              <SpotInfo className="infoCont"></SpotInfo>
-
-
-            </Container>
-          </Col>
         </Row>
         <Row >
           <Col >

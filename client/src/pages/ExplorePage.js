@@ -16,6 +16,7 @@ import {
   Col,
   Container,
 } from "react-bootstrap";
+import "./ExplorePage.css";
 
 const ExplorePage = (props) => {
 
@@ -41,21 +42,21 @@ const ExplorePage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div >
-        <Container>
+      <div className="papa">
           <Row>
             <Col md={4}>
             <SearchBar></SearchBar>
             </Col>
           </Row>
           <Row>
-            <Col md={4}>
-              <List></List>
+            <Col >
+              <List className="list"></List>
             </Col>
-            <Col md={8}>
+            <Col className="mappy">
               <GoogleMap 
               center={{lat:userLat,lng:userLong}} 
               zoom={14} 
+              
               mapContainerStyle={{width: "100%", height:"100%"}}
               onLoad={map=>setMap(map)}
               options={{ styles: mapStyles,
@@ -74,7 +75,6 @@ const ExplorePage = (props) => {
               </GoogleMap>
             </Col>
           </Row>
-        </Container>
       </div>
     );
 };

@@ -6,3 +6,8 @@ input[type="radio"]{
     cursor: pointer;
     transition: color 200ms;
 }
+.papa{
+    position: relative;
+    margin-left: 7%;
+    margin-right: 7%;
+}

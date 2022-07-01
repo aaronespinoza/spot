@@ -20,7 +20,7 @@ const List = () => {
 
    const renderCard= (card, index)=>{
        return(
-    <Card style={{ width: '18rem' }} key={index}>
+    <Card key={index}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
             <Card.Title>{card.title}</Card.Title>

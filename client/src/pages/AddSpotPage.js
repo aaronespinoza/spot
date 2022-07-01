@@ -40,7 +40,7 @@ const AddSpotPage = (props) => {
      return <div value="loading"/>
     }
     return (
-      <div>
+      <div className="papa">
         <Row>
           <Col>
             <AddSpotForm></AddSpotForm>
