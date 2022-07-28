@@ -71,7 +71,7 @@ const AddSpotForm = props => {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Difficulty</Form.Label>
-            <Difficulty/>
+            <Difficulty className="difficulty"/>
             </Form.Group>
 
             </Col>
@@ -104,7 +104,7 @@ const AddSpotForm = props => {
             <Row>
             <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Tags</Form.Label>
-            <Tags/>
+            <Tags className="tags"/>
             </Form.Group>
             </Row>
 
