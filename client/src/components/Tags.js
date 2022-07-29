@@ -20,7 +20,6 @@ function Tags() {
       <Button  className="tags" as="input" type="submit" value="Wild Life" />{' '}
       <Button  className="tags" as="input" type="submit" value="Venue" />{' '}
       <Button  className="tags" as="input" type="submit" value="Rave" />{' '}
-      <Button  className="tags" as="input" type="submit" value="Scramble" />{' '}
       <Button  className="tags" as="input" type="submit" value="Muddy" />{' '}
       <Button className="tags"  as="input" type="submit" value="Water Crossing" />{' '}
 
