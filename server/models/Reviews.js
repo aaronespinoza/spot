@@ -21,74 +21,8 @@ const reviewsSchema = new Schema({
 
   tag: [
     {
-      privateProperty: {
-        type: Boolean,
-        default: false,
-      },
-      snow: {
-        type: Boolean,
-        default: false,
-      },
-      offTrail: {
-        type: Boolean,
-        default: false,
-      },
-      urban: {
-        type: Boolean,
-        default: false,
-      },
-      rural: {
-        type: Boolean,
-        default: false,
-      },
-      highClearence: {
-        type: Boolean,
-        default: false,
-      },
-      scramble: {
-        type: Boolean,
-        default: false,
-      },
-      restaurant: {
-        type: Boolean,
-        default: false,
-      },
-      bar: {
-        type: Boolean,
-        default: false,
-      },
-      hotSpring: {
-        type: Boolean,
-        default: false,
-      },
-      cliffJumping: {
-        type: Boolean,
-        default: false,
-      },
-      scenicOverlook: {
-        type: Boolean,
-        default: false,
-      },
-      wildLife: {
-        type: Boolean,
-        default: false,
-      },
-      venue: {
-        type: Boolean,
-        default: false,
-      },
-      rave: {
-        type: Boolean,
-        default: false,
-      },
-      muddy: {
-        type: Boolean,
-        default: false,
-      },
-      waterCrossing: {
-        type: Boolean,
-        default: false,
-      },
+      type: String,
+      trim: true,
     },
   ],
 

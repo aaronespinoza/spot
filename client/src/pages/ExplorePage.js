@@ -7,10 +7,13 @@ import Auth from '../utils/auth';
 import img3 from "../images/UpdateUser.png";
 import Map from "../components/Map";
 import AddSpotForm from "../components/AddSpotForm";
+import SpotList from '../components/SpotList';
 import List from '../components/List';
 import SpotDetails from '../components/SpotDetails';
 import SearchBar from '../components/SearchBar';
 import mapStyles from '../utils/mapStyles';
+import { useQuery } from '@apollo/client';
+import { QUERY_SPOTS } from '../utils/queries';
 import {
   Row,
   Col,
@@ -26,7 +29,9 @@ const ExplorePage = (props) => {
     const[map, setMap]= useState( /** @type google.maps.GoogleMap */ (null))
     const[userLat, setUserLat]= useState();
     const[userLong, setUserLong]= useState();
-    const [spots, setSpots] = useState([]);
+    //const [spots, setSpots] = useState([]);
+    const {loading, data} = useQuery(QUERY_SPOTS);
+    const spots = data?.spots || [];
 
     //Finds users location
 
@@ -49,8 +54,16 @@ const ExplorePage = (props) => {
             </Col>
           </Row>
           <Row>
-            <Col >
-              <List className="list"></List>
+            <Col>
+              <div>
+                {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <SpotList
+                    spots={spots}
+                  />
+                )}
+              </div>
             </Col>
             <Col className="mappy">
               <GoogleMap 

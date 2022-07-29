@@ -24,7 +24,7 @@ const typeDefs = gql`
     _id: ID
     description: String
     rating: Number
-    tag: String
+    tag: [String]
     difficulty: Number
     image: String
     spot: Spots
